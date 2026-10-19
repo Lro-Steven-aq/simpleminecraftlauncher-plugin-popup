@@ -93,7 +93,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Plugin-Class>org.lro.steven.aq.simpleminecraftlauncher.logger.LoggerPlugin</Plugin-Class>
+                            <Plugin-Class>org.lro.steven.aq.simpleminecraftlauncher.popup.PopupPlugin</Plugin-Class>
                         </manifestEntries>
                     </archive>
                 </configuration>
