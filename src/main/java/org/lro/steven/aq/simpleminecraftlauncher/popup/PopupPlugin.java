@@ -7,6 +7,7 @@ import org.lro.steven.aq.simpleminecraftlauncher.plugin.PluginManager;
 import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.Plugin;
 import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.event.impl.LogEvent;
 import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.event.impl.PopupEvent;
+import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.signalbus.EventConsumer;
 import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.signalbus.SignalBus;
 
 import java.util.Optional;
@@ -14,7 +15,7 @@ public class PopupPlugin implements Plugin {
     @Override
     public void start(SignalBus signalBus) {
 
-        signalBus.connect("ui.popup.error", event -> {
+        signalBus.connect("ui.popup.error", (EventConsumer) event -> {
             PopupEvent popupEvent = (PopupEvent) event;
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -25,7 +26,7 @@ public class PopupPlugin implements Plugin {
             });
         });
 
-        signalBus.connect("ui.popup.info", event -> {
+        signalBus.connect("ui.popup.info", (EventConsumer) event -> {
             PopupEvent popupEvent = (PopupEvent) event;
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -36,7 +37,7 @@ public class PopupPlugin implements Plugin {
             });
         });
 
-        signalBus.connect("ui.popup.warn", event -> {
+        signalBus.connect("ui.popup.warn", (EventConsumer) event -> {
             PopupEvent popupEvent = (PopupEvent) event;
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -47,7 +48,7 @@ public class PopupPlugin implements Plugin {
             });
         });
 
-        signalBus.connect("ui.popup.fatal", event -> {
+        signalBus.connect("ui.popup.fatal", (EventConsumer) event -> {
             PopupEvent popupEvent = (PopupEvent) event;
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -58,7 +59,7 @@ public class PopupPlugin implements Plugin {
             });
         });
 
-        signalBus.connect("ui.popup.debug", event -> {
+        signalBus.connect("ui.popup.debug", (EventConsumer) event -> {
             PopupEvent popupEvent = (PopupEvent) event;
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.NONE);
@@ -69,7 +70,7 @@ public class PopupPlugin implements Plugin {
             });
         });
 
-        signalBus.connect("ui.popup.trace", event -> {
+        signalBus.connect("ui.popup.trace", (EventConsumer) event -> {
             PopupEvent popupEvent = (PopupEvent) event;
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.NONE);
@@ -80,7 +81,7 @@ public class PopupPlugin implements Plugin {
             });
         });
 
-        signalBus.connect("ui.popup.confirmation", event -> {
+        signalBus.connect("ui.popup.confirmation", (EventConsumer) event -> {
             PopupEvent popupEvent = (PopupEvent) event;
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
